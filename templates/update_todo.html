@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-header text-center">
+    <p class="label">{{ task.title }}</p>
+  </div>
+  <div class="card-body text-center">
+    <blockquote class="blockquote mb-0">
+      <p class="label">{{ task.description }}</p>
+    </blockquote>
+  </div>
+</div>
+
+
+<form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2 py-2" method="post"
+  action="/update/{{task.id}}">
+
+  <div class="col-12">
+    <div class="form-outline">
+      <label class="form-label my-1" for="title">Enter the updated task name:</label>
+      <input class="todo-input form-control" required="required" name="title" placeholder="updated title" id="title"
+        type="text" value="{{ title }}" />
+    </div>
+    <div class="form-outline">
+      <label class="form-label my-1" for="description">Enter the updated task description:</label>
+      <input class="todo-input form-control" required="required" name="description" id="description"
+        placeholder="updated description" type="text" value="{{ description }}" />
+    </div>
+  </div>
+
+  <div class="py-2 d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+
+</form>
+{% endblock %}

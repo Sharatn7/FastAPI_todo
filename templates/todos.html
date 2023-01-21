@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" method="post">
+
+  <div class="col-12">
+    <div class="form-outline">
+      <label class="form-label my-1" for="title">Enter the task name:</label>
+      <input class="todo-input form-control" required="required" name="title" placeholder="Add title" id="title"
+        type="text" value="{{ title }}" />
+    </div>
+    <div class="form-outline">
+      <label class="form-label my-1" for="description">Enter the task description:</label>
+      <input class="todo-input form-control" required="required" name="description" id="description"
+        placeholder="Add description" type="text" value="{{ description }}" />
+    </div>
+  </div>
+
+  <div class="py-2 d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
+
+<div class="tableFixHead">
+  <table class="table mb-6 text-center">
+    <thead>
+      <tr>
+        <th scope="col">Todo</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+    {% if tasks %}
+    <tbody>
+      {% for todo in tasks %}
+      <tr>
+        <td><a href=" /fetch/{{ todo.id }}">{{ todo.title }}</a></td>
+        <td>
+          <a href="/delete/{{ todo.id }}"><button class="btn btn-danger">Delete</button></a>
+          <a href="/update_todo/{{ todo.id }}"><button class="btn btn-success ms-1">Update</button></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endif %}
+
+  </table>
+</div>
+
+{% endblock %}
