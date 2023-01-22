@@ -1,6 +1,4 @@
-# Wobot_assignment
-
-Basic To-do list api done using FastAPI.
+# Basic To-do list api done using FastAPI.
 
 ## In this application
 
