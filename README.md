@@ -3,7 +3,6 @@
 ## In this application
 
 - **REST API is used.**
-- **Included authentication.**
 - **Implementated of CRUD functionalities.**
 - **Used FastAPI as framework.**
 - **Used Mongo db.**
